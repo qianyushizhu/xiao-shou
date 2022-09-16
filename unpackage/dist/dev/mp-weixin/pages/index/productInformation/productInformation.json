@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "产品资料",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "d-input": "/commpents/DInput",
+    "d-select": "/commpents/DSelect"
+  }
+}

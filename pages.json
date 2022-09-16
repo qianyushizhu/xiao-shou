@@ -1,0 +1,164 @@
+{
+	"easycom": {
+			"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+		},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		}
+	    ,{
+            "path" : "pages/mine/mine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/shop/shop",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/category/category",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "产品列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/categoryDetail/categoryDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/index/card/card",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "名片",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		},
+		
+		{
+		    "path" : "pages/index/user/user",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "用户组",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/index/updateUser/updateUser",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "编辑用户",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/index/quotation/quotation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "报价方案",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/quotation/quotationEdit/quotationEdit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "方案编辑",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/productInformation/productInformation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "产品资料",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+            }
+            
+        },
+		{
+		    "path" : "pages/login/login",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "登录",
+		        "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/mine/mineInfo/mineInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/productInformation/flie/flie",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "公司下文件夹",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#BBBBBB",
+		"selectedColor": "#007AFC",
+		"borderStyle": "white",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tc_icon_shouye1@2x.png",
+				"selectedIconPath": "static/tc_icon_shouye@2x.png",
+				"text": "首页"
+			},
+			
+	
+			{
+				"pagePath": "pages/mine/mine",
+				"iconPath": "static/tc_icon_wode@2x.png",
+				"selectedIconPath": "static/tc_icon_wode1@2x.png",
+				"text": "我的"
+			}
+		]
+	}
+}
