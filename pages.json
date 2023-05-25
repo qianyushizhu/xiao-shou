@@ -3,10 +3,12 @@
 			"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true,
 				"navigationStyle": "custom"
 			}
 		}
@@ -19,7 +21,18 @@
 				"navigationStyle": "custom"
             }
             
-        }
+        },
+		{
+		    "path" : "pages/login/initlogin/initlogin",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+			
+			
+		}
         ,{
             "path" : "pages/index/shop/shop",
             "style" :                                                                                    
@@ -43,7 +56,7 @@
             "path" : "pages/index/categoryDetail/categoryDetail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "商品详情",
                 "enablePullDownRefresh": false
             }
             
@@ -130,6 +143,62 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "公司下文件夹",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/company/company",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "上游企业",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine/mineCard/mineCard",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人名片",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		
+        ,{
+            "path" : "pages/index/view/view",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/mine/setting/setting",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "设置",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/login/commonWebview/commonWebview",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/login/wxlogin/wxlogin",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登录",
                 "enablePullDownRefresh": false
             }
             

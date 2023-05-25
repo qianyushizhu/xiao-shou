@@ -25,7 +25,6 @@
 /* 透明度 */
 /* 文章场景相关 */
 .data-v-298367e3 .u-swipe-action {
-  padding: 0 15px;
   box-sizing: border-box;
 }
 .data-v-298367e3 .u-swipe-action-item {

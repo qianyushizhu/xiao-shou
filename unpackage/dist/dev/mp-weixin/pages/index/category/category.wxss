@@ -6,49 +6,11 @@
   -webkit-transform: translate(103px) !important;
           transform: translate(103px) !important;
 }
-.category_bottom_item_text.data-v-0d7feb89 {
-  height: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.category_bottom.data-v-0d7feb89 {
   padding: 10px;
   box-sizing: border-box;
-}
-.category_bottom_item_text view.data-v-0d7feb89:nth-child(1) {
-  font-size: 15px;
-  font-family: PingFang-SC-Regular, PingFang-SC;
-  font-weight: 400;
-  color: #000000;
-  line-height: 21px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  /*设置方向*/
-  -webkit-line-clamp: 2;
-  /*设置超过为省略号的行数*/
-  overflow: hidden;
-}
-.category_bottom_item_text view.data-v-0d7feb89:nth-child(2) {
-  font-size: 16px;
-  font-family: PingFangSC-Semibold, PingFang SC;
-  font-weight: 600;
-  color: #007AFC;
-  line-height: 22px;
-}
-.category_bottom_item.data-v-0d7feb89 {
-  width: 172px;
-  height: 266px;
-  background: #FFFFFF;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-}
-.category_bottom.data-v-0d7feb89 {
-  box-sizing: border-box;
-  background: #F2F2F2;
-  min-height: 80vh;
-  padding: 10px 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 .currentClass.data-v-0d7feb89 {
   color: #007AFC;
@@ -66,8 +28,8 @@
   margin-right: 30px;
 }
 .category_top.data-v-0d7feb89 {
+  background-color: #fff;
   padding: 15px 10px ;
-  height: 100px;
   box-sizing: border-box;
 }
 

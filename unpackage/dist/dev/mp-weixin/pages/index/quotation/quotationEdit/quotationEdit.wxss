@@ -41,7 +41,6 @@
   box-sizing: border-box;
 }
 .data-v-495cc134 .u-swipe-action {
-  height: 390px !important;
-  overflow: scroll;
+  min-height: 200px !important;
 }
 

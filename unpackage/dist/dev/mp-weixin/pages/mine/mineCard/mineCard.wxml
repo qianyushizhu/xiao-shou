@@ -1,0 +1,1 @@
+<view style="padding:10px 15px;"><id-card vue-id="f344f30c-1" info="{{info}}" bind:__l="__l"></id-card></view>

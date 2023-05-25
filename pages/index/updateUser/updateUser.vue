@@ -4,33 +4,34 @@
 			<view class="index_top_middle">
 				<view class="index_title">首页</view>
 				<view class="index_search"></view>
-				<image src="../../../static/tc_icon_touxiang@2x.png" class="image_yuan" mode=""></image>
-				<view class="">房卫莹</view>
+				<image :src="info.headLogo" class="image_yuan" mode=""></image>
+				<view class="">{{info.username}}</view>
 			</view>
 		</view>
 		<view class="" style="height: 235px;"></view>
 
 		<view class="" style="padding: 0 15px;">
-			<u--form labelPosition="left" :model="model"   ref="form1">
-				<u-form-item label="备注名" borderBottom ref="item1"><u--input v-model="model.userInfo.name" placeholder="请输入内容" border="none"></u--input></u-form-item>
-				<u-form-item label="当前分组" borderBottom  ref="item1">
-					<u--input v-model="model.userInfo.sex" disabled disabledColor="#ffffff" placeholder="请选择分组" border="none"></u--input>
+			<u--form labelPosition="left" :model="info" ref="form1">
+				<u-form-item label="备注名" borderBottom ref="item1"><u--input v-model="remark" placeholder="请输入内容" border="none"></u--input></u-form-item>
+				<u-form-item label="当前分组" borderBottom ref="item1" @click='openPicker'>
+					<u--input v-model="name" disabled disabledColor="#ffffff" placeholder="请选择分组" border="none"></u--input>
 					<u-icon slot="right" color="#A3A3A3" name="arrow-right"></u-icon>
 				</u-form-item>
-				<u-form-item label="所在地" borderBottom ref="item1">
+				<!-- <u-form-item label="所在地" borderBottom ref="item1">
 					<u--input v-model="model.userInfo.sex" disabled disabledColor="#ffffff" placeholder="请选择" border="none"></u--input>
 					<u-icon slot="right" color="#A3A3A3" name="arrow-right"></u-icon>
 				</u-form-item>
 				<u-form-item label="授权产品" borderBottom ref="item1">
 					<u--input v-model="model.userInfo.sex" disabled disabledColor="#ffffff" placeholder="请选择性别" border="none"></u--input>
 					<u-icon slot="right" color="#A3A3A3" name="arrow-right"></u-icon>
-				</u-form-item>
-				
-				
+				</u-form-item> -->
 			</u--form>
 		</view>
 		<view class="" style="position: fixed;bottom: 70px;left: 50%;transform: translateX(-50%);">
-			<view class="center" style="
+			<view
+			@click="groupMemberdelete"
+				class="center"
+				style="
 			width: 315px;
 			height: 42px;
 			font-size: 14px;
@@ -38,36 +39,118 @@
 			font-weight: 400;
 			color: #FFFFFF;
 			background: #007AFC;
-			border-radius: 21px;">
-			解除授权
+			border-radius: 21px;"
+			>
+				解除授权
 			</view>
-			<view class="center" style="
+			<view
+			@click="groupMemberupdate"
+				class="center"
+				style="
 			width: 315px;
 			height: 42px;
 			font-size: 14px;
 			font-weight: 400;
 			color: #007AFC;
 			border-radius: 21px;
-			border: 1px solid #007AFC;">
+			border: 1px solid #007AFC;"
+			>
 				提交
 			</view>
 		</view>
+		<u-picker :show="show" :columns="columns" keyName="name"  @confirm='center' :defaultIndex='index' @cancel='show=false'></u-picker>
 	</view>
 </template>
 
 <script>
+	import {getgrouplist,groupMemberdelete,groupMemberupdate} from '@/common/request.js'
 export default {
 	data() {
 		return {
-			model: {
-				userInfo: {
-					name: '',
-					sex: ''
-				}
-			}
+			info:{},
+			show:false,
+			columns:[],
+			index:0,
+			name:'',
+			remark:'',
+			groupId:''
+			
 		};
 	},
-	methods: {}
+	onLoad(op){
+		this.info = JSON.parse(op.info)
+		this.name = this.info.name
+		this.remark = this.info.remark
+		this.groupId = this.info.groupId
+		this.getgrouplist()
+	},
+	methods: {
+		openPicker(){
+			this.show = true
+		},
+		center(w){
+			console.log(w)
+			this.name = w.value[0].name
+			this.groupId = w.value[0].groupId
+			this.show = false
+		},
+		groupMemberupdate(){
+			groupMemberupdate(this.info.linkId,{
+				groupId:this.groupId,
+				remark:this.remark,
+				userId:uni.getStorageSync('userId'),
+			}).then(res=>{
+				res.code == 0
+				 ? (()=>{
+					uni.navigateBack({
+						delta:1,
+						success: () => {
+							let page = getCurrentPages()
+							let cur = page[page.length-1]
+							console.log(cur)
+							cur.$vm.list = []
+							cur.$vm.groupMemberlist()
+							uni.$u.toast('修改成功')
+						}
+					})
+				 })()
+				 :  uni.$u.toast(res.msg);
+			})
+		},
+		groupMemberdelete(){
+			groupMemberdelete(this.info.linkId).then(res=>{
+				res.code == 0
+				 ? (()=>{
+					uni.navigateBack({
+						delta:1,
+						success: () => {
+							uni.$u.toast('解除成功')
+						}
+					})
+				 })()
+				 :  uni.$u.toast(res.msg);
+			})
+		},
+		
+		getgrouplist(){
+			getgrouplist({
+				pageNum:1,
+				pageSize:100,
+				creatorId:uni.getStorageSync('userId')
+			}).then(res=>{
+				res.code == 0
+				 ? (()=>{
+					 this.columns[0] = res.data.records
+					 let a =[]
+					 a = this.columns[0].map(e=>e.name)
+					 console.log(a)
+					 this.index = [a.indexOf(this.info.name)]
+					 console.log(this.index)
+				 })()
+				 :  uni.$u.toast(res.msg);
+			})
+		},
+	}
 };
 </script>
 
@@ -77,7 +160,6 @@ export default {
 }
 /deep/ input {
 	text-align: right !important;
-	
 }
 /deep/ .u-form-item__body__right__message {
 	text-align: right !important;

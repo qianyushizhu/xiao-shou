@@ -21,41 +21,27 @@
 				<dInput></dInput>
 			</view>
 			<view class="" v-if="current == 0" style="padding: 0 15px;">
-				<view class="" style="display: flex;padding: 20px 0pt;border-bottom: 1px solid rgba(0,0,0,0.15);" v-for="item in list" :key="item" @click="toFile(item)">
-					<image v-if="item.logo" :src="item.logo" mode="" style="width: 76px;height: 76px;margin-right: 12px;"></image>
-					<view class="" style="display: flex;flex-direction: column;justify-content: center;flex: 1;">
-						<view class="" style="margin-bottom:10px;
-						font-size: 16px;
-						font-weight: 600;
-						color: rgba(0,0,0,0.85);
-						">
-							{{item.companyName}}
-						</view>
-						<view class="" style="
-						font-size: 12px;
-						font-weight: 400;
-						color: #A6A6A6;
-						">
-							主营：{{item.companyBrief}}
-						</view>
-					</view>
-				</view>
+				<companyitem  v-for="item in list" :key="item"  :info="item" :quotationId='quotationId'></companyitem>
 			</view>
-			<dSelect  v-else></dSelect>
-			<u-loadmore :status="status" />
+			<view class="" v-else >
+				<dSelect  :type='1' :quotationId='quotationId' ></dSelect>
+			</view>
 		</view>
 	</view>
 	
 </template>
 
+
 <script>
 	import {dInput} from '../../../commpents/DInput.vue'
 	import {dSelect} from '../../../commpents/DSelect.vue'
+	import {companyitem} from '../../../commpents/companyitem.vue'
 	import { company,getgrouplist} from '@/common/request.js'
 	export default {
 		components:{
 			dInput,
-			dSelect
+			dSelect,
+			companyitem
 		},
 		data() {
 			return {
@@ -69,22 +55,24 @@
 								list:[],
 								currentPage:1,
 								status:'loadmore',
+								quotationId:''
 			}
 		},
-		onLoad() {
+		onLoad(opitons) {
+			this.quotationId = opitons.quotationId 
 			this.company()
 		},
 		onReachBottom() {
 				this.currenPage = ++this.currenPage
-					this.company()
+				this.company()
 				
 		},
 		methods: {
 			change(e){
 				this.current = e.index
-				
 				console.log(e)
 			},
+			
 			
 			
 			company(){

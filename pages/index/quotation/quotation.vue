@@ -1,7 +1,7 @@
 <template>
 	<view style="background: #F2F2F2;min-height: 100vh;">
 		<view class="" style="padding: 10px 15px;display: flex;align-items: center;justify-content: space-between;background-color: #fff;">
-			<u-search :showAction="false" placeholder="日照香炉生紫烟" v-model="keyword"></u-search>
+			<u-search :showAction="false" placeholder="日照香炉生紫烟" @change='inputChange' v-model="keyword"></u-search>
 			<view class="" style="width: 50px;"></view>
 			<view
 				@click="toQuotationEdit"
@@ -31,80 +31,84 @@
 		>
 			方案列表
 		</view>
-		<u-swipe-action>
-			<u-swipe-action-item :options="options" v-for="(item, i) in list" :key="i" @click='del(item.quotationId)'>
-				<view
-				@click="toEdit(item.quotationId)"
-					class=""
-					style="display: flex;flex-direction: column;border-radius: 4px ;
-		          	border-left: 6px solid #007AFC;
-					
-		          	"
-				>
+		<view class="" style="padding:0 15px;" v-if="list.length!=0">
+			<u-swipe-action>
+				<u-swipe-action-item :options="options" v-for="(item, i) in list" :key="i" @click='del(item.quotationId)'>
 					<view
+					@click="toEdit(item.quotationId)"
 						class=""
-						style="display: flex;padding: 15px;box-sizing: border-box;
-		          		height: 84px;
-		          		flex-direction: column;
-		          		background: #FFFFFF;
-		          		border-radius: 4px;
-		          		"
+						style="display: flex;flex-direction: column;border-radius: 4px ;
+			          	border-left: 6px solid #007AFC;
+						
+			          	"
 					>
 						<view
 							class=""
-							style="
-		          			font-size: 16px;
-		          			margin-bottom: 15px;
-		          			font-family: PingFangSC-Semibold, PingFang SC;
-		          			font-weight: 600;
-		          			color: rgba(0,0,0,0.85);"
+							style="display: flex;padding: 15px;box-sizing: border-box;
+			          		height: 84px;
+			          		flex-direction: column;
+			          		background: #FFFFFF;
+			          		border-radius: 4px;
+			          		"
 						>
-							{{ item.title }}
-						</view>
-						<view class="" style="display: flex;justify-content: space-between;align-items: center;">
 							<view
 								class=""
 								style="
-		          				font-size: 12px;
-		          				font-family: PingFang-SC-Regular, PingFang-SC;
-		          				font-weight: 400;
-		          				color: #A6A6A6;"
+			          			font-size: 16px;
+			          			margin-bottom: 15px;
+			          			font-family: PingFangSC-Semibold, PingFang SC;
+			          			font-weight: 600;
+			          			color: rgba(0,0,0,0.85);"
 							>
-								{{ item.createDate }}
+								{{ item.title }}
 							</view>
-							<view
-								class=""
-								style="
-		          				font-size: 12px;
-		          				font-family: PingFang-SC-Regular, PingFang-SC;
-		          				font-weight: 400;
-		          				color: #A6A6A6;"
-							>
-								访问数：2
-							</view>
-							<view
-								class=""
-								style="
-		          				font-size: 14px;
-		          				font-family: DIN-Bold, DIN;
-		          				font-weight: bold;
-		          				color: #007AFC;
-		          				line-height: 17px;"
-							>
-								{{ item.totalPrice }}
+							<view class="" style="display: flex;justify-content: space-between;align-items: center;">
+								<view
+									class=""
+									style="
+			          				font-size: 12px;
+			          				font-family: PingFang-SC-Regular, PingFang-SC;
+			          				font-weight: 400;
+			          				color: #A6A6A6;"
+								>
+									{{ item.createDate }}
+								</view>
+								<view
+									class=""
+									style="
+			          				font-size: 12px;
+			          				font-family: PingFang-SC-Regular, PingFang-SC;
+			          				font-weight: 400;
+			          				color: #A6A6A6;"
+								>
+									访问数：2
+								</view>
+								<view
+									class=""
+									style="
+			          				font-size: 14px;
+			          				font-family: DIN-Bold, DIN;
+			          				font-weight: bold;
+			          				color: #007AFC;
+			          				line-height: 17px;"
+								>
+									{{ item.totalPrice }}
+								</view>
 							</view>
 						</view>
 					</view>
-				</view>
-			</u-swipe-action-item>
-		</u-swipe-action>
+				</u-swipe-action-item>
+			</u-swipe-action>
+		</view>
+		<view class="center" style="margin-top: 50px;" v-else>
+			<image src="../../../static/lj_icon_quesheng@2x.png" class="queshen" mode=""></image>
+		</view>
 		<u-toast ref="uToast"></u-toast>
-		<u-loadmore :status="status" :loading-text="loadingText" :loadmore-text="loadmoreText" :nomore-text="nomoreText" />
 	</view>
 </template>
 
 <script>
-import { addQuotation, getQuotationList ,delQuotation} from '../../../common/request.js';
+import { addQuotation, getQuotationList ,delQuotation,AddArea} from '../../../common/request.js';
 export default {
 	data() {
 		return {
@@ -128,16 +132,24 @@ export default {
 		};
 	},
 	onLoad() {
+		// this.getQuotationList();
+	},
+	onShow() {
 		this.getQuotationList();
 	},
 	onReachBottom() {
-		if( this.status == 'nomore') return false
+		if( this.status == 'nomore') {
+			  uni.$u.toast('没有数据了')
+		}
 		else this.status = 'loading'
 		
 		this.currentPage = ++this.currentPage;
 		this.getQuotationList();
 	},
 	methods: {
+		inputChange(){
+			
+		},
 		toEdit(quotationId){
 			uni.navigateTo({
 				url: './quotationEdit/quotationEdit?quotationId=' + quotationId
@@ -159,6 +171,7 @@ export default {
 			})
 		},
 		getQuotationList() {
+			this.list = []
 			getQuotationList({
 				pageNum: this.currentPage,
 				pageSize: 10
@@ -173,14 +186,30 @@ export default {
 					: this.$refs.uToast.show({ type: 'default', message: res.msg });
 			});
 		},
+		addArea() {
+			AddArea(this.quotationId).then(res => {
+				res.code == 0 
+				? (() => {this.$refs.uToast.show({ type: 'default', title: '默认主题', message: '成功添加区域' }) ; this.getQuotation()})()
+				: this.$refs.uToast.show({ type: 'default', title: '默认主题', message: res.msg });
+			});
+		},
 		toQuotationEdit() {
 			addQuotation().then(res => {
-				if (res.code == 0 && res.data.quotationId) {
-					uni.navigateTo({
-						url: './quotationEdit/quotationEdit?quotationId=' + res.data.quotationId
+				res.code == 0
+				 ? (()=>{
+					AddArea(res.data.quotationId).then(res1 => {
+						res1.code == 0
+						 ? (()=>{
+								uni.navigateTo({
+									url: './quotationEdit/quotationEdit?quotationId=' + res.data.quotationId
+								});
+						 })()
+						 :  uni.$u.toast(res1.msg);
 					});
-				} else {
-				}
+				 })()
+				 :  uni.$u.toast(res.msg);
+				
+				
 			});
 		}
 	}
@@ -189,7 +218,7 @@ export default {
 
 <style lang="scss" scoped>
 /deep/ .u-swipe-action {
-	padding: 0 15px;
+	// padding: 0 15px;
 	box-sizing: border-box;
 }
 /deep/ .u-swipe-action-item {

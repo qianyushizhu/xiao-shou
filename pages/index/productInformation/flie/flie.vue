@@ -1,53 +1,32 @@
 <template>
-	<view style="padding:30px 52px;box-sizing: border-box;">
-		<view class="shop_select_right">
-			<view class="shop_select_right_item" v-for="item in list" @click="gotocategory(item)" :key="item">
-				<image src="../../../../static/tc_icon_wenjiajian@2x.png" mode=""></image>
-				<view class="">
-					{{item.folderName}}
-				</view>
-			</view>
-		</view>
+	<view style="padding:10px;box-sizing: border-box;min-height: 80vh;">
+		<dSelect  :companyId='companyId' :quotationId='quotationId' :type='type'></dSelect>
 	</view>
 </template>
 
 <script>
+	import {dSelect} from '@/commpents/DSelect.vue'
 	import {companyEmpowerFolders,companyEmpowerProducts} from '@/common/request.js'
 	export default {
-		
+		components:{
+			dSelect
+		},
 		data() {
 			return {
 				companyId:'',
-				list:[]
+				list:[],
+				type:0,
+				quotationId:''
 			};
 		},
 		onLoad(op) {
 			this.companyId = op.companyId ? op.companyId : ''
-			this.companyEmpowerFolders()
+			this.quotationId = op.quotationId ? op.quotationId : ''
+			
+			// this.companyEmpowerFolders()
 		},
 		methods:{
-			gotocategory(item){
-				console.log(1)
-				uni.navigateTo({
-					url:'/pages/index/category/category?folderId=' + item.folderId
-				})
-			},
 			
-			
-			companyEmpowerFolders(){
-				companyEmpowerFolders({
-					companyId:this.companyId,
-					folderId:0,
-					userId:uni.getStorageSync('userId')
-				}).then(res=>{
-					res.code == 0
-					 ? (()=>{
-						this.list = res.data
-						// this.list = this.list.concat(this.list)
-					 })()
-					 :  uni.$u.toast(res.msg);
-				})
-			}
 		}
 	}
 </script>

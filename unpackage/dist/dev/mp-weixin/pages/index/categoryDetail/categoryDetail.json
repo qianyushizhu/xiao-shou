@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "商品详情",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
-    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker"
   }
 }

@@ -24,6 +24,7 @@
 .mine_bottom.data-v-57280228 {
   background: #F2F2F2;
   padding: 30px 15px;
+  min-height: 60vh;
   box-sizing: border-box;
 }
 .index_xiaoshou_item_top.data-v-57280228 {
@@ -43,13 +44,15 @@
   visibility: hidden;
 }
 .index_xiaoshou_item_icon.data-v-57280228 {
-  font-size: 12px;
+  font-size: 24rpx;
   font-family: PingFang-SC-Regular, PingFang-SC;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.85);
-  line-height: 17px;
   display: flex;
   align-items: center;
+}
+.index_xiaoshou_item_icon image.data-v-57280228 {
+  border-radius: 50%;
 }
 .index_xiaoshou_item_icon image.data-v-57280228:first-child {
   position: relative;
@@ -63,19 +66,32 @@
   left: 50%;
 }
 .index_xiaoshou.data-v-57280228 {
-  height: 145px;
+  height: 290rpx;
   background: #FFFFFF;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 17px 10px 25px 15px;
+  padding: 34rpx 20rpx 50rpx 30rpx;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20rpx;
 }
 .index_xiaoshou image.data-v-57280228 {
-  width: 30px;
-  height: 30px;
+  width: 60rpx;
+  height: 60rpx;
+}
+.login_bottom.data-v-57280228 {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 100rpx;
+  left: 50%;
+  justify-content: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: #a6a6a6;
 }
 .text.data-v-57280228 {
   font-size: 18px;
@@ -151,6 +167,7 @@
 }
 .index_top_middle.data-v-57280228 {
   width: 100%;
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;

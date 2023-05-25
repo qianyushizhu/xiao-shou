@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "上游企业",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "companyitem": "/commpents/companyitem"
+  }
+}

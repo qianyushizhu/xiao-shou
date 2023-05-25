@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "公司下文件夹",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "d-select": "/commpents/DSelect"
+  }
 }

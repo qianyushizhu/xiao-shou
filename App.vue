@@ -26,4 +26,8 @@
 			justify-content: center;
 			align-items: center;
 		}
+		.queshen{
+			width: 180rpx;
+			height: 180rpx;
+		}
 </style>

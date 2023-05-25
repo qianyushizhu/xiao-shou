@@ -1,8 +1,8 @@
 {
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "projectname": "销售",
+  "projectname": "%E9%94%80%E5%94%AE",
   "setting": {
-    "compileHotReLoad": true
+    "compileHotReLoad": false
   },
   "condition": {
     "miniprogram": {
@@ -90,8 +90,226 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "个人名片",
+          "pathName": "pages/mine/mineCard/mineCard",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "公司下文件夹",
+          "pathName": "pages/index/productInformation/flie/flie",
+          "query": "companyId=7",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/updateUser/updateUser",
+          "query": "info=%5Bobject%20Object%5D",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/updateUser/updateUser",
+          "query": "info=%7B%22linkId%22%3A8%2C%22groupId%22%3A5%2C%22name%22%3A%22%E9%BB%98%E8%AE%A4%E5%88%86%E7%BB%84%22%2C%22userId%22%3A10029%2C%22username%22%3A%22%E5%BC%A0%E4%B8%89%E7%96%AF%22%2C%22phone%22%3A%2215236454512%22%2C%22headLogo%22%3A%22http%3A%2F%2Foss.juxinban.cn%2F5DE83F8AB05F%22%2C%22province%22%3A%22%E6%B1%9F%E8%8B%8F%E7%9C%81%22%2C%22city%22%3A%22%E5%8D%97%E4%BA%AC%E5%B8%82%22%2C%22createDate%22%3A%222022-09-26%2015%3A16%3A13%22%7D",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/user/user",
+          "query": "groupId=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotationEdit/quotationEdit",
+          "query": "quotationId=27",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotationEdit/quotationEdit",
+          "query": "quotationId=27",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotationEdit/quotationEdit",
+          "query": "quotationId=33",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/category/category",
+          "query": "folderId=137&type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotationEdit/quotationEdit",
+          "query": "quotationId=35",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/category/category",
+          "query": "folderId=137&type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/productInformation/productInformation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/productInformation/productInformation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/quotation/quotationEdit/quotationEdit",
+          "query": "quotationId=52",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/category/category",
+          "query": "folderId=137&type=1&quotationId=",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/user/user",
+          "query": "groupId=79",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=8&quotationId=61",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mineInfo/mineInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "加用户好友",
+          "pathName": "pages/index/index",
+          "query": "id=10043",
+          "launchMode": "default",
+          "scene": 1047
+        },
+        {
+          "name": "1111",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": 1011
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/categoryDetail/categoryDetail",
+          "query": "productId=12&quotationId=",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/commonWebview/commonWebview",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/initlogin/initlogin",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/wxlogin/wxlogin",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
-  }
+  },
+  "libVersion": "2.26.1"
 }

@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
+    "pages/login/initlogin/initlogin",
     "pages/index/shop/shop",
     "pages/index/category/category",
     "pages/index/categoryDetail/categoryDetail",
@@ -13,7 +14,13 @@
     "pages/index/productInformation/productInformation",
     "pages/login/login",
     "pages/mine/mineInfo/mineInfo",
-    "pages/index/productInformation/flie/flie"
+    "pages/index/productInformation/flie/flie",
+    "pages/mine/company/company",
+    "pages/mine/mineCard/mineCard",
+    "pages/index/view/view",
+    "pages/mine/setting/setting",
+    "pages/login/commonWebview/commonWebview",
+    "pages/login/wxlogin/wxlogin"
   ],
   "subPackages": [],
   "window": {

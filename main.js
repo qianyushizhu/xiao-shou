@@ -5,7 +5,7 @@ import Vue from 'vue'
 import uView from '@/uni_modules/uview-ui'
 import { Base64 } from './js_sdk/js-base64';
 Vue.prototype.Base64 = Base64
-Vue.prototype.$img = 'http://oss.juxinban.cn/'
+Vue.prototype.$img = 'http://fyfile.wave100.cn/'
 
 Vue.use(uView)
 Vue.config.productionTip = false

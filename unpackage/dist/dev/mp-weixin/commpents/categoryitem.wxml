@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['gotoDetail',['$0'],['info']]]]]}}" class="category_bottom_item" bindtap="__e"><image src="{{info.picture}}" mode></image><view class="category_bottom_item_text"><view>{{''+info.productName+''}}</view></view></view>

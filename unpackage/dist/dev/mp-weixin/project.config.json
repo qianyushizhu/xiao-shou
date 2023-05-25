@@ -6,11 +6,12 @@
   },
   "setting": {
     "urlCheck": false,
-    "es6": false,
-    "postcss": false,
-    "minified": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
     "newFeature": true,
     "bigPackageSizeSupport": true,
+    "ignoreUploadUnusedFiles": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -18,8 +19,8 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.26.0",
-  "appid": "touristappid",
+  "libVersion": "",
+  "appid": "wx773d90acb7ba94f3",
   "projectname": "销售",
   "condition": {
     "search": {

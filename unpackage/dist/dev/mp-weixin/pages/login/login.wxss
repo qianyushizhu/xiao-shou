@@ -27,4 +27,17 @@
 .data-v-b237504c .u-input {
   padding: 25px 0 !important;
 }
+.login_bottom.data-v-b237504c {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 100rpx;
+  left: 50%;
+  justify-content: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: #a6a6a6;
+}
 

@@ -3,7 +3,6 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
   font-size: 18px;
   font-family: PingFangSC-Semibold, PingFang SC;
@@ -11,10 +10,11 @@
   color: #FFFFFF;
   line-height: 25px;
 }
-.card .qrcode.data-v-7b056d6e {
+.card.data-v-7b056d6e .qrcode {
   position: absolute;
+  padding: 0 !important;
   left: 50%;
-  top: 58%;
+  top: 61%;
   -webkit-transform: translate(-50%, -58%);
           transform: translate(-50%, -58%);
   width: 320rpx;
@@ -23,7 +23,7 @@
 .card .tip.data-v-7b056d6e {
   position: absolute;
   left: 50%;
-  top: 80%;
+  top: 85%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   font-size: 14px;
@@ -32,15 +32,20 @@
   color: #000000;
   line-height: 20px;
 }
+.card .card_bottom.data-v-7b056d6e {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .card .card_image_container.data-v-7b056d6e {
-  width: 634rpx;
-  height: 842rpx;
+  width: 80%;
+  height: 50vh;
   position: relative;
 }
 .card .card_image_container .card_image_top.data-v-7b056d6e {
   position: absolute;
-  left: 60rpx;
-  top: 60rpx;
+  left: 3.9%;
+  top: 3.9%;
   display: flex;
   align-items: center;
   font-size: 15px;

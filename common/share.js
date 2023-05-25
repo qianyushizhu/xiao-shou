@@ -5,9 +5,9 @@ export default{
            //设置默认的分享参数
            //如果页面不设置share，就触发这个默认的分享
             share:{
-                title:'和光荟',
+                title:'飞云企服',
                  path:'',
-                imageUrl:require('../static/new/hgh_icon_logo@2x.png'),
+                imageUrl:'',
                 desc:'',
                 content:''
             },

@@ -1,21 +1,28 @@
 <template>
-	<view class="card">
-		<view class="" style="margin-top: 110rpx;margin-bottom: 180rpx;">
+	<view class="card" style="position: relative;">
+		<view class="" style="margin-top: 120rpx;margin-bottom: 180rpx;display: flex;margin-left: 50rpx;" @click="enter">
+			<u-icon name="arrow-left" color="#fff" size="20" @click="back"></u-icon>
+		</view>
+		<view class="" style="position: absolute;left: 50%;top: 110rpx;transform: translateX(-50%);">
 			添加销售
 		</view>
-		<view class="card_image_container">
-			<view class="card_image_top">
-				<image src="../../../static/tc_icon_touxiang@2x.png" mode=""></image>
-				<view class="">
-					我们去哪里啊
+		<view class="card_bottom">
+			<view class="card_image_container">
+				<view class="card_image_top">
+					<image :src="headLogo" mode=""></image>
+					<view class="">
+						{{username}}
+					</view>
 				</view>
+				<yz-qr  :qrPath.sync="qrPath" class="qrcode" :text="text" :size="size" :quality="quality" :colorDark="colorDark" :colorLight="colorLight"></yz-qr>
+				<!-- <image class="qrcode" :src="qrPath" mode=""></image> -->
+				<view class="tip">
+					请让用户扫一扫添加
+				</view>
+				<image src="../../../static/tc_icon_beijing@2x.png" mode=""></image>
 			</view>
-			<image class="qrcode" src="../../../static/logo.png" mode=""></image>
-			<view class="tip">
-				请让销售扫一扫添加
-			</view>
-			<image src="../../../static/tc_icon_beijing@2x.png" mode=""></image>
 		</view>
+		
 		
 	</view>
 </template>
@@ -24,11 +31,28 @@
 	export default {
 		data() {
 			return {
-				
+				  qrPath: '',
+				                    text: 'https://fypicapi.wave100.cn/shop?id='+uni.getStorageSync('userId'),
+				                    size: 160,
+				                    quality:'H',
+				                    colorDark: '#000000',
+				                    colorLight: '#ffffff',
+									headLogo:'',
+									username:'',
 			}
 		},
-		methods: {
+		onLoad() {
+			this.headLogo =  uni.getStorageSync('userInfo').headLogo
+			this.username = uni.getStorageSync('userInfo').username
 			
+			// +uni.getStorageSync('userId')
+		},
+		methods: {
+			back(){
+				uni.navigateBack({
+					delta:1
+				})
+			}
 		}
 	}
 </script>
@@ -39,17 +63,18 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	
 	box-sizing: border-box;
 	font-size: 18px;
 	font-family: PingFangSC-Semibold, PingFang SC;
 	font-weight: 600;
 	color: #FFFFFF;
 	line-height: 25px;
-	.qrcode{
+	/deep/ .qrcode{
 		position: absolute;
+		padding: 0 !important;
 		left: 50%;
-		top: 58%;
+		top: 61%;
 		transform: translate(-50%,-58%);
 		width: 320rpx;
 		height: 320rpx;
@@ -57,7 +82,7 @@
 	.tip{
 		position: absolute;
 		left: 50%;
-		top: 80%;
+		top: 85%;
 		transform: translateX(-50%);
 		font-size: 14px;
 		font-family: PingFang-SC-Regular, PingFang-SC;
@@ -65,14 +90,20 @@
 		color: #000000;
 		line-height: 20px;
 	}
+		
+	.card_bottom{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	.card_image_container{
-		width: 634rpx;
-		height: 842rpx;
+		width: 80%;
+		    height: 50vh;
 		position: relative;
 		.card_image_top{
 			position: absolute;
-			left: 60rpx;
-			top: 60rpx;
+			left: 3.9%;
+			top: 3.9%;
 			display: flex;
 			align-items: center;
 			font-size: 15px;

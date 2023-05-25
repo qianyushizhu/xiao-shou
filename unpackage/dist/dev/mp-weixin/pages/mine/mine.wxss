@@ -56,7 +56,6 @@
 }
 .mine_top {
   box-sizing: border-box;
-  height: 220px;
   background: linear-gradient(180deg, #007AFC 0%, #588AFB 54%, #00ABFE 100%);
   padding-top: 110rpx;
   padding-bottom: 24rpx;

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "个人名片",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "id-card": "/commpents/idcard"
+  }
+}
